@@ -1,10 +1,10 @@
 import BookingForm from "./BookingForm";
 
-function BookingPage() {
+function BookingPage({ submitForm }) {
   return (
     <section>
       <h1>Reserve a Table</h1>
-      <BookingForm />
+      <BookingForm submitForm={submitForm} />
     </section>
   );
 }
