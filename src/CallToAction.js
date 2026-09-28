@@ -3,7 +3,7 @@ function CallToAction() {
     <section>
       <h2>Little Lemon</h2>
       <p>Enjoy delicious food in a welcoming atmosphere.</p>
-      <button>Reserve a Table</button>
+      <button aria-label="On Click">Reserve a Table</button>
     </section>
   );
 }
