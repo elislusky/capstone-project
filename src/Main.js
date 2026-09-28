@@ -1,8 +1,14 @@
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./Homepage";
+import BookingPage from "./BookingPage";
+
 function Main() {
   return (
     <main>
-      <h1>Little Lemon</h1>
-      <p>Welcome to Little Lemon restaurant.</p>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/booking" element={<BookingPage />} />
+      </Routes>
     </main>
   );
 }
