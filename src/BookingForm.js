@@ -16,6 +16,10 @@ function BookingForm({ submitForm }) {
   function handleSubmit(e) {
     e.preventDefault();
 
+    if (!date || !time || guests < 1 || guests > 10) {
+      return;
+    }
+
     const formData = {
       date,
       time,
@@ -37,6 +41,7 @@ function BookingForm({ submitForm }) {
         type="date"
         id="res-date"
         value={date}
+        required
         onChange={(e) => {
           setDate(e.target.value);
           dispatch(e.target.value);
@@ -48,6 +53,7 @@ function BookingForm({ submitForm }) {
       <select
         id="res-time"
         value={time}
+        required
         onChange={(e) => setTime(e.target.value)}
       >
         {availableTimes.map((availableTime) => (
@@ -66,6 +72,7 @@ function BookingForm({ submitForm }) {
         max="10"
         id="guests"
         value={guests}
+        required
         onChange={(e) => setGuests(e.target.value)}
       />
 
@@ -74,13 +81,18 @@ function BookingForm({ submitForm }) {
       <select
         id="occasion"
         value={occasion}
+        required
         onChange={(e) => setOccasion(e.target.value)}
       >
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
 
-      <input type="submit" value="Make Your reservation" />
+      <input
+        type="submit"
+        value="Make Your reservation"
+        disabled={!date || !time || guests < 1 || guests > 10}
+      />
     </form>
   );
 }
